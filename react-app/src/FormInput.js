@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Grid from "@mui/material/Grid";
+import { Today } from "@mui/icons-material";
 
 class FormInput extends Component {
   state = {
@@ -110,11 +111,23 @@ class FormInput extends Component {
   validateBirthday = (birthday) => {
     let birthdayError = this.state.error.birthdayError;
     let formIsValid = this.state.formIsValid;
+    // function isToday(date) {
+    //   const today = new Date();
+    //   if (today.toDateString() === date.toDateString()) {
+    //     return true;
+    //   }
 
+    //   return false;
+    // }
     if (birthday.trim() === "") {
       formIsValid = false;
       birthdayError = "Please enter birthday";
-    } else {
+    }
+    // else if (birthday >= isToday) {
+    //   formIsValid = false;
+    //   birthdayError = "Please enter birthday";
+    // }
+    else {
       formIsValid = true;
       birthdayError = "";
     }
@@ -188,7 +201,7 @@ class FormInput extends Component {
       this.validateContact(this.state.contact) &&
       this.validateInfo(this.state.info)
     ) {
-      alert("form is submited");
+      alert("Form is submited");
       this.props.addData(this.state);
 
       this.setState({
